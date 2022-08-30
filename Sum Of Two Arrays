@@ -1,0 +1,65 @@
+// https://www.codingninjas.com/codestudio/problems/sum-of-two-arrays_893186?leftPanelTab=0
+
+vector<int> reverse(vector<int> v){
+    int L = 0;
+    int R = v.size() - 1;
+    
+    while(L < R){
+        swap(v[L++], v[R--]);
+    }
+    return v;
+}
+
+vector<int> findArraySum(vector<int>&a, int n, vector<int>&b, int m) {
+	// Write your code here.
+    int i = n - 1;
+    int j = m - 1;
+    int carry = 0;
+    vector<int> ans;
+    
+    while(i >= 0 and j >= 0){
+        int val1 = a[i];
+        int val2 = b[j];
+        int sum = val1 + val2 + carry;
+        
+        carry = sum/10;
+        sum = sum%10;
+        ans.push_back(sum);
+        i--;
+        j--;
+    }
+    
+    // 1st case 
+    // 1 2 3 4
+    //       5
+    while(i >= 0){
+        int sum = a[i] + carry;
+        carry = sum/10;
+        sum = sum%10;
+        ans.push_back(sum);
+        i--;
+    }
+    
+    // 2nd Case 
+    //       6
+    // 1 2 3 4
+    while(j >= 0){
+        int sum = b[j] + carry;
+        carry = sum/10;
+        sum = sum%10;
+        ans.push_back(sum);
+        j--;
+    }
+    
+    // Third case
+    // 9 9 9
+    // 9 9 9 
+    while(carry != 0){
+        int sum = carry;
+        carry = sum/10;
+        sum = sum%10;
+        ans.push_back(sum);
+    }
+    
+    return reverse(ans);
+}
