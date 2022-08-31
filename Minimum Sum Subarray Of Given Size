@@ -1,0 +1,21 @@
+https://www.codingninjas.com/codestudio/problems/find-minimum-sum-subarray-of-given-size_873368?topList=amazon-sde-challenge&leftPanelTab=0
+
+int minSubarraySum(int arr[], int n, int k) {
+    // if k is less than the size of an array.
+//     if(n<k)
+//         return -1;
+    
+    // calculating the sum of first window of size k
+    int ans = 0;
+    for(int i=0; i<k; i++){
+        ans += arr[i];
+    }
+    
+    // now calculateing the sum of remaining windows by removing 1st element of prev window and adding last elemet of current window
+    int newSum = ans;
+    for(int i=k; i<n; i++){
+        newSum += arr[i] - arr[i-k];
+        ans = min(ans, newSum);
+    }
+    return ans;
+}
