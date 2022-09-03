@@ -1,3 +1,5 @@
+// https://practice.geeksforgeeks.org/problems/binary-representation5003/1
+
 // APPROACH 1
 class Solution
 {
