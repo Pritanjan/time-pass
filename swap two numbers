@@ -8,7 +8,8 @@ int x = 10, y = 5;
       x = x + y;
 
       x = x * y;
-      y = x / y;
+   
+   	y = x / y;
       x = x / y;
   
 # APPROACH 2 (USING BITWISE XOR)
