@@ -1,0 +1,52 @@
+// https://www.codingninjas.com/codestudio/problems/delete-middle-element-from-stack_985246?leftPanelTab=0
+
+// APPROACH 1
+
+#include <bits/stdc++.h> 
+void deleteMiddle(stack<int>& inputStack, int N){
+    stack<int> s;
+    for(int i=0; i<N/2; i++){
+        s.push(inputStack.top());
+        inputStack.pop();
+    }
+    
+    inputStack.pop();       
+    while(!s.empty()){
+        inputStack.push(s.top());
+        s.pop();
+    }
+    
+//     for(int i=N/2; i<N; i++){
+//         s.push(inputStack.top());
+//         inputStack.pop();
+//     }
+//     return s;
+
+}
+
+
+// APPROACH 2 RECURSION
+
+
+#include <bits/stdc++.h> 
+void solve(stack<int>& st, int n, int cnt){
+    // base case 
+    if(cnt == n/2){
+        st.pop();
+        return ;
+    }
+    
+    int num = st.top();
+    st.pop();
+    
+    // Recursive call
+    solve(st, n, cnt+1);
+    
+    st.push(num);    
+}
+
+void deleteMiddle(stack<int>& st, int N){
+    int cnt = 0;
+    solve(st, N, cnt);
+}
+
