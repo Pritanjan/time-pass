@@ -28,3 +28,6 @@ void sortStack(stack<int> &stk) {
 
     sortedInsert(stk, temp);
 }
+
+// T.C. each element is popped out elements from stack & insert in the other one. which takes O(N) time .
+// So for n elemenets it will be O(N^2)
