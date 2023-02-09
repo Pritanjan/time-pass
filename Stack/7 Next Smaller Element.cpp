@@ -1,6 +1,12 @@
 // https://www.geeksforgeeks.org/next-smaller-element/
 // https://www.codingninjas.com/codestudio/problems/next-smaller-element_1112581?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0
 
+
+// NEXT GREATER ELEMENT
+
+// https://github.com/Pritanjan/Leetcode/blob/main/0401%20-%200500/496.%20Next%20Greater%20Element%20I%20ARRAY%20HASH_TABLE%20STACK.cpp
+// https://github.com/Pritanjan/Leetcode/blob/main/0401%20-%200500/496.%20Next%20Greater%20Element%20I%20ARRAY%20HASH_TABLE%20STACK.cpp
+
 #include<stack>
 vector<int> nextSmallerElement(vector<int> &arr, int n)
 {
@@ -19,3 +25,6 @@ vector<int> nextSmallerElement(vector<int> &arr, int n)
 
     return res;
 }
+
+
+
