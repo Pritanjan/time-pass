@@ -1,5 +1,5 @@
 // https://practice.geeksforgeeks.org/problems/max-rectangle/1
-
+// https://leetcode.com/problems/maximal-rectangle/
 
 // S.C. -> O(M)  M IS NO OF COL
 // T.C. -> O(M*N)
