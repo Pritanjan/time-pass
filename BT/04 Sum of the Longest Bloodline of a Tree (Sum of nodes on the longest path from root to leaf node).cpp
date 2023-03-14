@@ -1,4 +1,5 @@
 // https://practice.geeksforgeeks.org/problems/sum-of-the-longest-bloodline-of-a-tree/1
+// https://www.geeksforgeeks.org/sum-nodes-longest-path-root-leaf-node/
 
 class Solution{
 public:
