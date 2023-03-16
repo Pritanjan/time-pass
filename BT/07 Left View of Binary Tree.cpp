@@ -23,3 +23,28 @@ vector<int> leftView(Node *root){
 
 
 
+
+
+
+
+
+// 2nd 
+
+void LEFT(Node* root, int level, vector<int>& res){
+    if(root == nullptr) return ;
+    
+    if(level == res.size()) {
+        res.push_back(root -> data);
+    }
+    
+    
+    LEFT(root->left, level + 1, res);
+    LEFT(root->right, level + 1, res);
+}
+
+vector<int> leftView(Node *root){
+    vector<int> res;
+    LEFT(root, 0, res);
+    return res;
+}
+
