@@ -1,3 +1,5 @@
+// APPRROACH 1
+
 #include <iostream>
 using namespace std;
 
@@ -153,3 +155,66 @@ int main() {
 
 
 
+
+
+
+// APPRROACH 2
+
+
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+	
+	// min_heap
+	
+	priority_queue<int> pq;
+		
+	pq.push(4);
+	pq.push(2);
+	pq.push(5);
+	pq.push(3);
+	
+	cout << "element at top" << pq.top() << endl;
+	pq.pop();
+	cout << "element at top" << pq.top() << endl;
+	
+	cout << "size" << pq.size() << endl;
+	
+	if(pq.empty()) cout << "empty" << endl;
+	else cout <<"not empty" << endl;
+	
+	
+	// max_heap
+	
+	priority_queue<int, vector<int>, greater<int> > min_heap;	
+	min_heap.push(4);
+	min_heap.push(2);
+	min_heap.push(5);
+	min_heap.push(3);
+	
+	cout << "element at top" << min_heap.top() << endl;
+	min_heap.pop();
+	cout << "element at top" << min_heap.top() << endl;
+	
+	cout << "size" << min_heap.size() << endl;
+	
+	if(min_heap.empty()) cout << "empty" << endl;
+	else cout <<"not empty" << endl;
+	
+	
+}
+
+
+
+
+// OUTPUT
+// element at top5
+// element at top4
+// size3
+// not empty
+// element at top2
+// element at top3
+// size3
+// not empty
