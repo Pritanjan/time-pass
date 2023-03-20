@@ -32,7 +32,51 @@ class heap {
         cout << endl;
     }
     
+    void deletefromheap(){
+        if(n == 0) {
+            cout << "empty"; 
+            return ;
+        }
+        
+        // s1 : swap first node & last node
+        p[1] = p[n];
+        
+        // s2 : remove last node
+        n--;
+        
+        // s3 take root node to its correct pos
+        int i = 1;
+        while(i < n){
+            int Lidx = 2*i;
+            int Ridx = 2*i + 1;
+            
+            if(Lidx < n && p[i] < p[Lidx]){
+                swap(p[i], p[Lidx]);
+                i = Lidx;
+            }
+            else if(Ridx < n && p[i] < p[Ridx]){
+                swap(p[i], p[Ridx]);
+                i = Ridx;
+            }
+            else return ;
+        }
+    }
+    
 };
+
+void heapify(int p[], int n, int i){
+    int larget = i;
+    int L = 2*i;
+    int R = 2*i + 1;
+    
+    if(L < n && p[larget] < p[L]) larget = L;
+    if(R < n && p[larget] < p[R]) larget = R;
+    
+    if(larget != i){
+        swap(p[larget], p[i]);
+        heapify(p, n, larget);
+    }
+}
 
 int main() {
 	heap h;
@@ -43,8 +87,34 @@ int main() {
 	h.insert(54);
 	h.print();
 	
+	cout << "delete root node" << endl; 
+	h.deletefromheap();
+	h.print();
+	
+	int p[6] = {-1, 53, 54, 55, 52, 50};
+	int n = 5;
+	for(int i=n/2; i>0; i--){
+	    heapify(p, n, i);
+	}
+	
+	cout << "heapify" << endl; 
+	for(int i=1; i<=n; i++){
+	    cout << p[i] << " ";
+	}cout << endl;
 	
 	return 0;
 }
 
-// T.C. --> O(log N)
+// T.C. --> O(log N) for insert delete, heapify
+
+
+
+
+// OUTPUT
+// 55 54 53 50 
+// delete root node
+// 54 52 53 
+// heapify
+// 55 54 53 52 50 
+
+
