@@ -43,7 +43,7 @@ public:
 //  o indexing
 class Solution{
 public:
-    void heapify(vector<int> p, int n, int i){
+    void heapify(vector<int> &p, int n, int i){
         int larget = i;
         int L = 2*i + 1;
         int R = 2*i + 2;
