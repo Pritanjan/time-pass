@@ -69,14 +69,31 @@ void heapify(int p[], int n, int i){
     int L = 2*i;
     int R = 2*i + 1;
     
-    if(L < n && p[larget] < p[L]) larget = L;
-    if(R < n && p[larget] < p[R]) larget = R;
+    if(L <= n && p[larget] < p[L]) larget = L;
+    if(R <= n && p[larget] < p[R]) larget = R;
     
     if(larget != i){
         swap(p[larget], p[i]);
         heapify(p, n, larget);
     }
 }
+
+void heapsort(int p[], int n){
+    // T.C. -> O(n log n)
+    int t = n;
+    
+    while(t > 1){
+        // s1 : swap
+        swap(p[t], p[1]);
+        
+        // s2 :
+        t--;
+        
+        // s3
+        heapify(p, t, 1);
+    }
+}
+
 
 int main() {
 	heap h;
@@ -102,8 +119,19 @@ int main() {
 	    cout << p[i] << " ";
 	}cout << endl;
 	
+	heapsort(p, n);
+	cout << "heap sort" << endl; 
+	for(int i=1; i<=n; i++){
+	    cout << p[i] << " ";
+	}cout << endl;
+	
+	
 	return 0;
 }
+
+
+
+
 
 // T.C. --> O(log N) for insert delete, heapify
 
@@ -116,5 +144,12 @@ int main() {
 // 54 52 53 
 // heapify
 // 55 54 53 52 50 
+
+
+
+
+// WE CAN ALSO USE priority_queue to implement max_hea, min_heap
+
+
 
 
