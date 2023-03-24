@@ -1,4 +1,6 @@
-// Graph creation
+// UNODIERETED GRAPH
+
+// Graph creation by ADJANCY MATRIX
 
 #include <iostream>
 using namespace std;
@@ -19,18 +21,22 @@ int main() {
 }
 
 // T.C. --> O(N)
+// S.C. --> O(N*N)
 
 
 
 
-// UNODIERETED GRaPH
+
+
+// Graph creation by ADJANCY LIST
+
 
 #include <iostream>
 using namespace std;
 
 int main() {
 	int n, m;
-	cin>>n>>m;
+	cin >> n >> m;
 	
 	vector<int> adj[n+1];
 	for(int i=0; i<m; i++){
@@ -43,11 +49,11 @@ int main() {
 }
 
 // T.C. --> O(N)
+// S.C. --> O(2*E)
 
 
 
-
-// UDIERETED GRaPH ( FROM u ---> v )
+// DIERETED GRAPH ( FROM EDGE u ---> v )
 
 #include <iostream>
 using namespace std;
@@ -60,11 +66,11 @@ int main() {
 	for(int i=0; i<m; i++){
 	    int u, v;
 	    cin >> u >> v;
+	    // u --> v
 	    adj[u].push_back(v);
-      // u --> v
-	    // adj[v].push_back(u);
 	}
 	return 0;
 }
 
+// S.C. --> O(E)
 
